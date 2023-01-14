@@ -1,0 +1,56 @@
+﻿@page "/UiPageType/index"
+@using TAndCal.Model;
+@using TAndCal.Utility;
+@using TestingAndCalMobile.MVVM.Utility;
+@inject Microsoft.AspNetCore.Components.NavigationManager navigation
+@inject IUiPageTypeRepository Repo
+
+<h1>Ui Page Type</h1>
+<a href="/UiPageType/Create">Create New</a>
+@if (uiPageType == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in uiPageType)
+			{
+				
+				<tr>
+					<td> @item.Name </td>
+					<td><a class="btn btn-light" @onclick="@(()=>Edit(item.Id))"> Edit</a> | <a class="btn btn-danger" @onclick="@(() => Delete(item))"> Delete</a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+
+@code {
+	private List<UiPageTypeModel> uiPageType;
+
+	protected override void  OnInitialized()
+	{
+		uiPageType =  Repo.GetAllUsers();  
+
+	}
+	void  Delete(UiPageTypeModel uiPageTypeModel)
+	{
+		Repo.Delete(uiPageTypeModel);
+		navigation.NavigateTo("/UiPageType/index",true);
+
+	}
+	void Edit(int id)
+	{
+		navigation.NavigateTo($"UiPageType/Update/{id}");
+	}
+
+    
+}
