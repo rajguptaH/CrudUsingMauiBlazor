@@ -1,4 +1,4 @@
-﻿@page "/UiPageType/index"
+﻿@page "/"
 @using TAndCal.Model;
 @using TAndCal.Utility;
 @using TestingAndCalMobile.MVVM.Utility;
@@ -44,7 +44,7 @@ else
 	void  Delete(UiPageTypeModel uiPageTypeModel)
 	{
 		Repo.Delete(uiPageTypeModel);
-		navigation.NavigateTo("/UiPageType/index",true);
+		navigation.NavigateTo("/",true);
 
 	}
 	void Edit(int id)
