@@ -16,6 +16,7 @@ namespace TestingAndCalMobile.MVVM.Utility
             if (_connection == null)
             {
                 _connection = new SQLiteConnection(DbConnection.DbPath, DbConnection.Flags);
+                _connection.CreateTable<UiPageTypeModel>();
             }
         }
         public  int  CreateMethod(UiPageTypeModel UiPageTypeModel)

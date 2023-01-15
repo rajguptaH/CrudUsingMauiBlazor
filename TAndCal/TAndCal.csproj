@@ -54,6 +54,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\TacBlazor\TacBlazor.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Content Update="Pages\UiPageType\Index.razor">
         <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       </Content>
