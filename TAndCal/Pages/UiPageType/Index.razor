@@ -4,7 +4,7 @@
 @using TestingAndCalMobile.MVVM.Utility;
 @inject Microsoft.AspNetCore.Components.NavigationManager navigation
 @inject IUiPageTypeRepository Repo
-
+@using TacBlazor
 <h1>Ui Page Type</h1>
 <a href="/UiPageType/Create">Create New</a>
 @if (uiPageType == null)
@@ -31,6 +31,7 @@ else
 			}
 		</tbody>
 	</table>
+	<Counter></Counter>
 }
 
 @code {
